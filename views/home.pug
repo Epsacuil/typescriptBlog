@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Tony的个人笔记
+  p.lead Typescript和Nodejs编写的博客
+  hr
+  .row
+    - for (var x = 0; x < data.length; x++)
+      .col-sm-6
+        h2= data[x].title
+        p= data[x].subtitle
+        p
+          a.btn.btn-default(href=('/pages?id='+data[x]._id), role='button') View details »

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .page-header
+    h3 新增文档
+
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='title') 标题
+      .col-sm-8
+        textarea.form-control( name='title', id='title', autofocus=true, rows='7', style={resize: 'none',height:'40px'})
+    .form-group
+      label(class='col-sm-2 control-label', for='subtitle') 副标题
+      .col-sm-8
+        textarea.form-control( name='subtitle', id='subtitle', rows='7', style={resize: 'none',height:'40px'})
+    .form-group
+      label(class='col-sm-2 control-label', for='markdown') 文本文档
+      .col-sm-8
+        textarea.form-control(name='markdown', id='markdown', rows='7')
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          i.fa.fa-envelope
+          | 提交

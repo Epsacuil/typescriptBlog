@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css")
+  style.
+    .hljs-keyword,.hljs-literal,.hljs-built_in{
+      color:#d73a49;
+      font-weight:400
+    }
+    .hljs, pre{
+      background:none
+    }
+    .hljs-number{
+      color: #0000ff;
+    }
+  hr
+  .row
+      .col-sm-12
+        h2= data.title
+        p= data.subtitle + '  阅读人数:  ' + data.totalNum + '人'
+        div!= data.markdown
+        
+  a.btn.btn-default(href=('/upDatePages?id='+data.id), role='button', style={'margin-right':'20px'}) 修改
+  form(method='POST', action=('?id='+data.id), style={display:'inline-block'})
+    button.btn.btn-default 删除
+  script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js")
+  script.
+    hljs.initHighlightingOnLoad();
+  
